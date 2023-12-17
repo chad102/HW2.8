@@ -1,7 +1,6 @@
 package org.employeeBook.Second;
 
 import org.employeeBook.Employee;
-import org.employeeBook.EmployeeServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,25 +11,25 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/departments")
-public class EmployeeController2 {
-    private final EmployeeService2Impl employeeService2Impl;
-    public EmployeeController2(EmployeeService2Impl employeeService2Impl) {
-        this.employeeService2Impl = employeeService2Impl;
+public class DepartmentController {
+    private final DepartmentServiceImpl departmentServiceImpl;
+    public DepartmentController(DepartmentServiceImpl departmentServiceImpl) {
+        this.departmentServiceImpl = departmentServiceImpl;
     }
 @GetMapping(path = "/max-salary")
     public Optional<Employee> getMaxSalaryInDep(@RequestParam("departmentId") int departmentId) {
-        return employeeService2Impl.getMaxSalaryInDep(departmentId);
+        return departmentServiceImpl.getMaxSalaryInDep(departmentId);
     }
 @GetMapping(path = "/min-salary")
     public Optional<Employee> getMinSalaryInDep(@RequestParam("departmentId") int departmentId) {
-        return employeeService2Impl.getMinSalaryInDep(departmentId);
+        return departmentServiceImpl.getMinSalaryInDep(departmentId);
     }
 @GetMapping(path = "/all")
     public List<Employee> printAllDep(@RequestParam("departmentId") int departmentId) {
-        return employeeService2Impl.printEmployeesInDep(departmentId);
+        return departmentServiceImpl.printEmployeesInDep(departmentId);
 }
 @GetMapping(path = "/all")
-    public List<Employee> printEmployeesAllDep(@RequestParam(defaultValue = "departmentId") int departmentId) {
-        return employeeService2Impl.printEmployeesAllDep();
+    public List<Employee> printEmployeesAllDep() {
+        return departmentServiceImpl.printEmployeesAllDep();
 }
 }
