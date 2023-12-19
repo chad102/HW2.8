@@ -6,15 +6,14 @@ import org.employeeBook.exceptions.EmployeeStorageIsFullException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     public final Map<String, Employee> employees = new HashMap<>();
     private static final int MAX_SIZE = 100;
 
-    public Employee addNewEmployee(String firstName, String lastName) {
-        Employee e = new Employee(firstName, lastName);
+    public Employee addNewEmployee(String firstName, String lastName, int departmentId, int salary) {
+        Employee e = new Employee(firstName, lastName, departmentId, salary);
         if (employees.containsKey(firstName+lastName)) {
             throw new EmployeeAlreadyAddedException("Сотрудник уже добавлен в список");
         }

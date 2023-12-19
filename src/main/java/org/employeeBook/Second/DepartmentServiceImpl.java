@@ -3,6 +3,7 @@ package org.employeeBook.Second;
 import org.employeeBook.Employee;
 import org.employeeBook.EmployeeService;
 import org.employeeBook.EmployeeServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -10,10 +11,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class DepartmentServiceImpl extends EmployeeServiceImpl {
-
     EmployeeServiceImpl employeeServiceImpl;
 
     public DepartmentServiceImpl(EmployeeServiceImpl employeeServiceImpl) {
+        super();
         this.employeeServiceImpl = employeeServiceImpl;
     }
 
