@@ -25,11 +25,12 @@ public class DepartmentController {
         return departmentServiceImpl.getMinSalaryInDep(departmentId);
     }
 @GetMapping(path = "/all")
-    public List<Employee> printAllDep(@RequestParam(defaultValue = "departmentId") String departmentId) {
-        if (departmentId.equals("departmentId")) {
-            return departmentServiceImpl.printEmployeesInDep(Integer.parseInt(departmentId));
-        } else {
-            return departmentServiceImpl.printEmployeesAllDep();
-        }
+    public List<Employee> printAllEmployeesInDep(@RequestParam("departmentId") int departmentId) {
+        return departmentServiceImpl.printEmployeesInDep(departmentId);
+    }
+
+@GetMapping(path = "/all1")
+    public List<Employee> printAllDeps() {
+        return departmentServiceImpl.printEmployeesAllDep();
     }
 }
