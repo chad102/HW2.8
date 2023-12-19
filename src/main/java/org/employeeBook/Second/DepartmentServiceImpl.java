@@ -14,7 +14,6 @@ public class DepartmentServiceImpl extends EmployeeServiceImpl {
     EmployeeServiceImpl employeeServiceImpl;
 
     public DepartmentServiceImpl(EmployeeServiceImpl employeeServiceImpl) {
-        super();
         this.employeeServiceImpl = employeeServiceImpl;
     }
 
